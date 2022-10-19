@@ -8,11 +8,13 @@ namespace Zip.InstallmentsService.Controllers
     [ApiController]
     public class InstallmentController : ControllerBase
     {
+        private readonly ILogger<InstallmentController> _logger;
         private readonly IPaymentPlanService _paymentPlanService;
 
-        public InstallmentController(IPaymentPlanService paymentPlanService)
+        public InstallmentController(IPaymentPlanService paymentPlanService, ILogger<InstallmentController> logger)
         {
             _paymentPlanService = paymentPlanService;
+            _logger = logger;
         }
 
         [HttpPost("getpaymentplan")]

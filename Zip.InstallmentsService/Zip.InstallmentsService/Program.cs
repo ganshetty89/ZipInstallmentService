@@ -1,13 +1,19 @@
+using Zip.InstallmentsService.Service;
+using Zip.InstallmentsService.Service.Interface;
+
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
-
+builder.Host.ConfigureServices((hostContext,services) =>
+{
+    services.AddLogging();
+    services.AddScoped<IPaymentPlanService, PaymentPlanService>();
+});
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+builder.WebHost.UseUrls("http://*:8083");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -16,10 +22,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
+app.UseRouting();
 app.MapControllers();
 
 app.Run();
