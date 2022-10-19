@@ -11,6 +11,6 @@ namespace Zip.InstallmentsService.Model
 
 		public decimal PurchaseAmount { get; set; }
 
-        public Installment[] Installments { get; set; }
+        public Installment[]? Installments { get; set; }
     }
 }

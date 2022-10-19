@@ -1,5 +1,4 @@
-﻿using Zip.InstallmentsService.Controllers;
-using Zip.InstallmentsService.Model;
+﻿using Zip.InstallmentsService.Model;
 using Zip.InstallmentsService.Service.Interface;
 
 namespace Zip.InstallmentsService.Service
