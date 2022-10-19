@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Zip.InstallmentsService.Model;
+using Zip.InstallmentsService.Service.Interface;
 
 namespace Zip.InstallmentsService.Controllers
 {
@@ -7,5 +8,17 @@ namespace Zip.InstallmentsService.Controllers
     [ApiController]
     public class InstallmentController : ControllerBase
     {
+        private readonly IPaymentPlanService _paymentPlanService;
+
+        public InstallmentController(IPaymentPlanService paymentPlanService)
+        {
+            _paymentPlanService = paymentPlanService;
+        }
+
+        [HttpPost("getpaymentplan")]
+        public async Task<PaymentPlan> GetPaymentPlanAsync(PaymentPlanInput paymentPlanInput)
+        {
+            return await _paymentPlanService.CreatePaymentPlan(paymentPlanInput);
+        }
     }
 }
