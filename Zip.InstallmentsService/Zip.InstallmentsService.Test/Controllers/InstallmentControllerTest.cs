@@ -32,7 +32,7 @@ namespace Zip.InstallmentsService.Test.Controllers
 
             A.CallTo(() => _paymentPlanService.CreatePaymentPlan(paymentPlanInput)).Returns(paymentPlan);
 
-            var result = await _installmentController.GetPaymentPlanAsync(paymentPlanInput);
+            var result = await _installmentController.GeneratePaymentPlanAsync(paymentPlanInput);
 
             Assert.AreEqual(paymentPlan, result);
         }

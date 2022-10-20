@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Zip.InstallmentsService</name>
+    </assembly>
+    <members>
+        <member name="M:Zip.InstallmentsService.Controllers.InstallmentController.GeneratePaymentPlanAsync(Zip.InstallmentsService.Model.PaymentPlanInput)">
+            <summary>
+            Submit an input to generate Payment paln.
+            </summary>
+            <param name="paymentPlanInput"></param>
+            <response code ="200">Payment plan is succeesully generated</response>
+            <remarks>
+            PaymentPlanInput:
+              PurchaseAmount ==> The total amount for which installment plan needs to be generated.
+              NoOfInstallments ==> No. of Installments the customer is opting for. Must be greater than 1.
+              Frequency ==> Interval in no. of days which the customer needs to pay the installments
+            </remarks>
+        </member>
+        <member name="T:Zip.InstallmentsService.Model.Installment">
+            <summary>
+            Data structure which defines all the properties for an installment.
+            </summary>
+        </member>
+        <member name="P:Zip.InstallmentsService.Model.Installment.Id">
+            <summary>
+            Gets or sets the unique identifier for each installment.
+            </summary>
+        </member>
+        <member name="P:Zip.InstallmentsService.Model.Installment.DueDate">
+            <summary>
+            Gets or sets the date that the installment payment is due.
+            </summary>
+        </member>
+        <member name="P:Zip.InstallmentsService.Model.Installment.Amount">
+            <summary>
+            Gets or sets the amount of the installment.
+            </summary>
+        </member>
+        <member name="T:Zip.InstallmentsService.Model.PaymentPlan">
+            <summary>
+            Data structure which defines all the properties for a purchase installment plan.
+            </summary>
+        </member>
+    </members>
+</doc>

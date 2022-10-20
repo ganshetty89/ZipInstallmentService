@@ -1,0 +1,1 @@
+1. Run the application and go to url http://localhost:8083/swagger/index.html. A swagger UI would be displayed for calling the API.
